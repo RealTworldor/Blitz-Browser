@@ -37,17 +37,29 @@ class MainWindow(QMainWindow):
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
 
+        self.url_bar = QLineEdit()
+        self.url_bar.returnPressed.connect(self.navigate_to_url)
+        navbar.addWidget(self.url_bar)
+
+        self.browser.urlChanged.connect(self.update_url)
+
     def navigate_home(self):
         self.browser.setUrl(QUrl('http://search.brave.com'))
 
     def navigate_github_page(self):
         self.browser.setUrl(QUrl('http://github.com/RealTworldor/Blitz-Browser'))
 
+    def navigate_to_url(self):
+        url = self.url_bar.text()
+        self.browser.setUrl(QUrl(url))
 
+
+    def update_url(self, q):
+        self.url_bar.setText(q.toString())
 
 
 app = QApplication(sys.argv)
-QApplication.setApplicationName('Blitz Browser')
+QApplication.setApplicationName('Blitz Browser | 0.1 beta')
 window = MainWindow()
 app.exec_()
 print('Blitz has started successfully')
