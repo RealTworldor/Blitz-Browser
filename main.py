@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
         home_btn.triggered.connect(self.navigate_home)
         navbar.addAction(home_btn)
 
-        github_page_btn = QAction('github page for browser', self)
+        github_page_btn = QAction('Github page', self)
         github_page_btn.triggered.connect(self.navigate_github_page)
         navbar.addAction(github_page_btn)
 
@@ -41,7 +41,7 @@ class MainWindow(QMainWindow):
         self.browser.setUrl(QUrl('http://search.brave.com'))
 
     def navigate_github_page(self):
-        self.browser.setUrl(QUrl('htt://github.com/RealTworldor/Blitz-Browser'))
+        self.browser.setUrl(QUrl('http://github.com/RealTworldor/Blitz-Browser'))
 
 
 
