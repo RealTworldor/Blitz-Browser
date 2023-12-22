@@ -21,6 +21,14 @@ class MainWindow(QMainWindow):
         back_btn.triggered.connect(self.browser.back)
         navbar.addAction(back_btn)
 
+        forward_btn = QAction('Foward', self)
+        forward_btn.triggered.connect(self.browser.forward)
+        navbar.addAction(forward_btn)
+
+        reload_btn = QAction('Reload', self)
+        reload_btn.triggered.connect(self.browser.reload)
+        navbar.addAction(reload_btn)
+
 
 app = QApplication(sys.argv)
 QApplication.setApplicationName('Blitz Browser')
