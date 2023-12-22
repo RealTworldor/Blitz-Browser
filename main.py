@@ -25,9 +25,18 @@ class MainWindow(QMainWindow):
         forward_btn.triggered.connect(self.browser.forward)
         navbar.addAction(forward_btn)
 
+        home_btn = QAction('Home', self)
+        home_btn.triggered.connect(self.navigate_home)
+        navbar.addAction(home_btn)
+
         reload_btn = QAction('Reload', self)
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
+
+    def navigate_home(self):
+        self.browser.setUrl(QUrl('http://search.brave.com'))
+
+
 
 
 app = QApplication(sys.argv)
