@@ -24,11 +24,15 @@ class MainWindow(QMainWindow):
 
         # ADD NAVIGATION TOOLBAR
         navtb = QToolBar("Navigation")
-        navtb.setIconSize(QSize(16, 16))
+        navtb.setIconSize(QSize(30, 30))
         self.addToolBar(navtb)
 
         # ADD BUTTONS TO NAVIGATION TOOLBAR
-        back_btn = QAction(QAction(QIcon))
+        back_btn = QAction(QIcon(os.path.join('icons', 'back_btn.png')), "Back", self)
+        back_btn.setStatusTip("Back to previous page")
+        navtb.addAction(back_btn)
+
+
 
 
 
